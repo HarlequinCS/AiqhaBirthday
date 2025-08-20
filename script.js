@@ -6,8 +6,9 @@ onload = () => {
 };
 
 window.addEventListener("load", () => {
-  // Masa animasi bunga (lebih kurang 5s)
+  // Tunggu sampai animasi bunga habis (contoh 6s)
   setTimeout(() => {
-    document.getElementById("redirect-btn").classList.add("show");
-  }, 5500); // adjust ikut timing animasi CSS
+    window.location.href = "indexb.html";
+  }, 6000); 
 });
+
