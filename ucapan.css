@@ -21,6 +21,33 @@ body::before {
   z-index: 0;
 }
 
+.flowers-wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flowers {
+  transform: scale(1);
+  transform-origin: center;
+  max-width: 90vw;  /* jangan lebih dari lebar skrin */
+  max-height: 90vh; /* jangan lebih dari tinggi skrin */
+}
+
+@media (max-width: 768px) {
+  .flowers {
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 480px) {
+  .flowers {
+    transform: scale(0.6);
+  }
+}
+
 .card {
   position: relative;
   z-index: 1;
