@@ -5,9 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy Birthday Aiqha</title>
   <link rel="stylesheet" href="ucapan.css">
+  <style>
+    /* Black overlay screen */
+    #overlay {
+      position: fixed;
+      inset: 0;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    #start-btn {
+      padding: 15px 40px;
+      font-size: 22px;
+      border: none;
+      border-radius: 15px;
+      background: linear-gradient(45deg, #ff4081, #ff9100);
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 0 20px rgba(255, 64, 129, 0.8);
+      transition: transform 0.2s ease;
+    }
+    #start-btn:hover {
+      transform: scale(1.1);
+    }
+    .flowers-wrapper {
+      display: none; /* Mula-mula sembunyi */
+      opacity: 0;
+      transition: opacity 1.5s ease;
+    }
+    .flowers-wrapper.show {
+      display: flex;
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
-  <!-- Glass Card -->
+  <!-- Black overlay with button -->
+  <div id="overlay">
+    <button id="start-btn">💝 SELAMAT HARI ULANG TAHUN AIQHA 💝</button>
+  </div>
+
+  <!-- Birthday card -->
   <div class="flowers-wrapper">
     <div class="card">
       <h1>🎂 Happy Birthday Aiqha 🎂</h1>
@@ -15,19 +56,32 @@
     </div>
   </div>
 
-  <!-- Background Song -->
-  <audio id="bg-music" autoplay loop muted>
-    <source src="HappyBirthdayAiqhaSong.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-
   <script src="ucapan.js"></script>
   <script>
-    window.addEventListener("load", () => {
-      const music = document.getElementById("bg-music");
-      music.volume = 0.3; // set 70% volume
-      music.muted = false; // buka balik sound lepas page load
-      music.play().catch(err => console.log("Autoplay blocked:", err));
+    // simpan semua sound dalam satu object (boleh tambah lain kalau nak)
+    const SOUNDS = {
+      SONG: new Audio("HappyBirthdayAiqhaSong.mp3"),
+    };
+
+    // setting untuk background song
+    SOUNDS.SONG.loop = true;
+    SOUNDS.SONG.volume = 0.7;
+
+    const overlay = document.getElementById("overlay");
+    const startBtn = document.getElementById("start-btn");
+    const wrapper = document.querySelector(".flowers-wrapper");
+
+    startBtn.addEventListener("click", () => {
+      // Hide overlay
+      overlay.style.display = "none";
+
+      // Show wrapper with fade-in
+      wrapper.classList.add("show");
+
+      // Play background song
+      SOUNDS.SONG.play().catch(err => {
+        console.log("Autoplay blocked:", err);
+      });
     });
   </script>
 </body>
