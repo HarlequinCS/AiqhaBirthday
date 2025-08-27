@@ -245,8 +245,14 @@ MASTER_TL.addPause('FLAME_ON', () => SOUNDS.MATCH.play());
 MASTER_TL.addPause('LIGHTS_OUT', () => SOUNDS.TUNE.play());
 BTN.addEventListener('click', () => {
   BTN.setAttribute('disabled', true);
+  
+  // Hide the "Click the button" label bila button ditekan
+  const label = document.querySelector('.click-label');
+  if (label) label.style.display = 'none';
+  
   MASTER_TL.restart();
 });
+
 
 SOUNDS.TUNE.muted = SOUNDS.MATCH.muted = SOUNDS.HORN.muted = SOUNDS.POP.muted = SOUNDS.CHEER.muted = SOUNDS.BLOW.muted = SOUNDS.ON.muted = false;
 

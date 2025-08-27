@@ -29,6 +29,23 @@ body {
   width: 7px;
 }
 
+.click-label {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+
+  /* Center text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  animation: blink 1.2s infinite;
+  width: 100%; /* biar dia occupy full parent width */
+}
+
+
+
 .flowers-wrapper {
   width: 100%;
   height: 100vh;
