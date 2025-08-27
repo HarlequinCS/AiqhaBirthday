@@ -15,6 +15,20 @@
     </div>
   </div>
 
+  <!-- Background Song -->
+  <audio id="bg-music" autoplay loop muted>
+    <source src="HappyBirthdayAiqhaSong.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
   <script src="ucapan.js"></script>
+  <script>
+    window.addEventListener("load", () => {
+      const music = document.getElementById("bg-music");
+      music.volume = 0.3; // set 70% volume
+      music.muted = false; // buka balik sound lepas page load
+      music.play().catch(err => console.log("Autoplay blocked:", err));
+    });
+  </script>
 </body>
 </html>
