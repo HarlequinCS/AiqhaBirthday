@@ -40,9 +40,31 @@ Selamat Hari Ulang Tahun Zulaikha Binti Mohd Omar 🎂🌸✨`;
       setTimeout(typeWriter, 50); // kelajuan typing
     } else {
       msgContainer.style.borderRight = "none"; // remove cursor lepas siap
+      // After typing finishes, fade in signature
+      const s = document.getElementById('signature');
+      if (s) { s.style.opacity = '0'; s.style.transition = 'opacity 1.2s ease'; requestAnimationFrame(() => { s.style.opacity = '1'; }); }
     }
   }
 
   // Start typing bila page load
   typeWriter();
+
+  // Gentle hearts spawn
+  function spawnHeart() {
+    const container = document.querySelector('.hearts');
+    if (!container) return;
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    const size = Math.random() * 10 + 10; // 10 - 20px
+    heart.style.width = `${size}px`;
+    heart.style.height = `${size}px`;
+    heart.style.left = `${Math.random() * 100}%`;
+    heart.style.bottom = '-20px';
+    heart.style.animationDuration = `${Math.random() * 4 + 6}s`;
+    heart.style.opacity = `${0.5 + Math.random() * 0.5}`;
+    container.appendChild(heart);
+    setTimeout(() => heart.remove(), 12000);
+  }
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReduced) setInterval(spawnHeart, 700);
 });

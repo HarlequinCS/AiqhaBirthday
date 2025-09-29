@@ -6,7 +6,7 @@ body {
   justify-content: center;
   align-items: flex-start; /* start supaya boleh scroll */
   background: url('background.jpg') no-repeat center center/cover;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
   overflow-y: auto;    /* enable scroll */
   position: relative;
 }
@@ -30,6 +30,33 @@ body::before {
   align-items: center;
   padding: 40px 20px; /* ruang kiri kanan */
   box-sizing: border-box;
+}
+
+.hearts { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.heart {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle at 30% 30%, #ff9ecb, #ff5ca0 60%);
+  transform: rotate(45deg);
+  animation: floatUp linear forwards;
+  opacity: 0.8;
+}
+.heart:before, .heart:after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: inherit;
+  border-radius: 50%;
+}
+.heart:before { left: -6px; top: 0; }
+.heart:after { top: -6px; left: 0; }
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(45deg) scale(0.8); opacity: 0; }
+  10% { opacity: 0.9; }
+  100% { transform: translateY(-120vh) rotate(45deg) scale(1.2); opacity: 0; }
 }
 
 .flowers {
@@ -71,15 +98,28 @@ body::before {
   margin-bottom: 20px;
   text-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
+.card h1 .script { font-family: 'Great Vibes', cursive; font-size: 2.2rem; }
 
 #message {
   color: #fff;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   line-height: 1.6;
   white-space: pre-line; /* kekalkan line break */
   display: block;
   text-align: left; /* lebih mudah baca kalau panjang */
   overflow-wrap: break-word; /* pecahkan word panjang */
+}
+
+.signature {
+  margin-top: 18px;
+  color: #ffdde9;
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.8rem;
+  text-align: right;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
 }
 
 .btn-back {
