@@ -212,7 +212,7 @@ const MASTER_TL = timeline({
   },
   onComplete: () => {
     gsap.delayedCall(2, () => {
-      window.location.href = "ucapan.html";
+      window.location.href = "indexX.html";
     });
     BTN.removeAttribute('disabled');
   },
