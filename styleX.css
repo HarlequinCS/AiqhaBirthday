@@ -967,10 +967,10 @@ body::before {
 
 .content__letter .right .text__letter {
     margin-top: 20px;
-    padding: 20px;
+    padding: 25px;
     font-family: 'Poppins', sans-serif;
-    font-size: 1.2rem;
-    line-height: 2;
+    font-size: 1.4rem;
+    line-height: 2.2;
     color: #2c2c2c;
     text-align: left;
     white-space: pre-line;
@@ -1023,8 +1023,8 @@ body::before {
     }
 
     .content .right .image {
-        width: 250px;
-        height: 250px;
+        width: 200px;
+        height: 200px;
     }
 
     .card {
@@ -1033,20 +1033,58 @@ body::before {
 
     .box__letter .letter__border {
         width: 95vw;
-        height: 80vh;
-        max-height: 600px;
-        padding: 20px;
+        height: 85vh;
+        max-height: 700px;
+        padding: 15px;
     }
 
     .letter__border .letter .title__letter {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+    }
+
+    .letter__border .letter .content__letter {
+        flex-direction: column;
+        height: calc(100% - 60px);
+    }
+
+    .letter__border .letter .content__letter .left {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        border-right: none;
+        border-bottom: 3px solid var(--color-border);
+        margin-bottom: 15px;
+    }
+
+    .content__letter .left #heart__letter {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+    }
+
+    .letter__border .letter .content__letter .right {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .content__letter .right .love__img {
+        position: relative;
+        right: auto;
+        top: auto;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .content__letter .right .love__img img {
+        width: 120px;
+        height: auto;
     }
 
     .content__letter .right .text__letter {
-        font-size: 1rem;
+        font-size: 1.1rem;
         line-height: 1.8;
-        margin-top: 10px;
-        max-height: calc(100% - 80px);
+        margin-top: 0;
+        max-height: calc(100% - 120px);
         overflow-y: auto;
         padding: 15px;
         background: rgba(255,255,255,0.95);
@@ -1068,6 +1106,17 @@ body::before {
     .flag__birthday .flag__right {
         transform: rotate(15deg) translate(50px, 10px) scaleX(-1);
     }
+
+    .name {
+        padding: 6px 20px;
+        bottom: -10px;
+        font-size: 1.1rem;
+    }
+
+    .name span {
+        font-size: 1.1rem;
+        margin: 0px 15px;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -1076,8 +1125,8 @@ body::before {
     }
 
     .content .right .image {
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 180px;
     }
 
     .card {
@@ -1091,18 +1140,39 @@ body::before {
 
     .box__letter .letter__border {
         width: 98vw;
-        height: 85vh;
-        max-height: 500px;
-        padding: 15px;
+        height: 90vh;
+        max-height: 600px;
+        padding: 10px;
+    }
+
+    .letter__border .letter .title__letter {
+        font-size: 1.4rem;
+    }
+
+    .letter__border .letter .content__letter .left {
+        padding: 10px;
+    }
+
+    .content__letter .left #heart__letter {
+        max-width: 150px;
+    }
+
+    .letter__border .letter .content__letter .right {
+        padding: 10px;
+    }
+
+    .content__letter .right .love__img img {
+        width: 100px;
     }
     
     .content__letter .right .text__letter {
-        font-size: 0.9rem;
+        font-size: 1rem;
         line-height: 1.7;
         padding: 12px;
         background: rgba(255,255,255,0.95);
         font-weight: 500;
         color: #1a1a1a;
+        max-height: calc(100% - 100px);
     }
     
     .back-button {
@@ -1116,6 +1186,17 @@ body::before {
     .back-button i {
         font-size: 10px;
         margin-right: 3px;
+    }
+
+    .name {
+        padding: 4px 15px;
+        bottom: -8px;
+        font-size: 1rem;
+    }
+
+    .name span {
+        font-size: 1rem;
+        margin: 0px 10px;
     }
 }
 
