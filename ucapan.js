@@ -27,7 +27,7 @@ Harumnya semerbak di pagi hari.
 Genaplah dua puluh usia ini,
 Moga bahagia kekal abadi.
 
-Selamat Hari Ulang Tahun Zulaikha Binti Mohd Omar 🎂🌸✨`;
+Selamat Hari Ulang Tahun Zulaikha Binti Mohammed Omar 🎂🌸✨`;
 
 
   const msgContainer = document.getElementById("message");
