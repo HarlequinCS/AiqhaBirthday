@@ -153,7 +153,14 @@ to('.cake__candle', { '--flame': 1, stagger: 0.2, duration: 0.1 }).
 to('body', { '--flame': 1, '--lightness': 5, duration: 0.2, delay: 0.2 });
 const LIGHTS_OUT = () =>
 timeline().to('body', {
-  onStart: () => SOUNDS.BLOW.play(),
+  onStart: () => {
+    SOUNDS.BLOW.play();
+    // Activate full page black overlay
+    const overlay = document.getElementById('lights-out-overlay');
+    if (overlay) {
+      overlay.classList.add('active');
+    }
+  },
   delay: 0.5,
   '--lightness': 0,
   duration: 0.1,
@@ -184,6 +191,12 @@ const RESET = () => {
   to('body', {
     '--lightness': 50,
     duration: 0.25 });
+  
+  // Remove lights out overlay on reset
+  const overlay = document.getElementById('lights-out-overlay');
+  if (overlay) {
+    overlay.classList.remove('active');
+  }
 
   // SET THESE
   set('.cake__frosting--end', { opacity: 0 });
@@ -243,12 +256,64 @@ add(LIGHTS_OUT(), 'LIGHTS_OUT');
 SOUNDS.TUNE.onended = SOUNDS.MATCH.onended = () => MASTER_TL.play();
 MASTER_TL.addPause('FLAME_ON', () => SOUNDS.MATCH.play());
 MASTER_TL.addPause('LIGHTS_OUT', () => SOUNDS.TUNE.play());
+// Confetti creation function
+function createConfetti() {
+  const confettiContainer = document.querySelector('.confetti-container');
+  if (!confettiContainer) return;
+  
+  const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#f9ca24', '#f0932b', '#eb4d4b', '#6c5ce7', '#a29bfe', '#fd79a8', '#fdcb6e'];
+  const confettiCount = 50;
+  
+  for (let i = 0; i < confettiCount; i++) {
+    const confetti = document.createElement('div');
+    confetti.style.position = 'absolute';
+    confetti.style.width = Math.random() * 10 + 5 + 'px';
+    confetti.style.height = Math.random() * 10 + 5 + 'px';
+    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    confetti.style.left = Math.random() * 100 + '%';
+    confetti.style.top = '-10px';
+    confetti.style.opacity = Math.random();
+    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+    
+    const animationDuration = Math.random() * 3 + 2;
+    const animationDelay = Math.random() * 0.5;
+    
+    confetti.style.animation = `confettiFall ${animationDuration}s ${animationDelay}s linear forwards`;
+    
+    confettiContainer.appendChild(confetti);
+    
+    setTimeout(() => {
+      confetti.remove();
+    }, (animationDuration + animationDelay) * 1000);
+  }
+}
+
+// Add confetti animation CSS
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes confettiFall {
+    to {
+      transform: translateY(100vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+`;
+document.head.appendChild(style);
+
 BTN.addEventListener('click', () => {
   BTN.setAttribute('disabled', true);
   
   // Hide the "Click the button" label bila button ditekan
   const label = document.querySelector('.click-label');
   if (label) label.style.display = 'none';
+  
+  // Create confetti
+  createConfetti();
+  
+  // Create more confetti after a delay
+  setTimeout(() => createConfetti(), 300);
+  setTimeout(() => createConfetti(), 600);
   
   MASTER_TL.restart();
 });
@@ -261,4 +326,8 @@ const toggleAudio = () => {
   BLOW.muted;
 };
 
-document.querySelector('#volume').addEventListener('input', toggleAudio);
+// Only add event listener if volume control exists
+const volumeControl = document.querySelector('#volume');
+if (volumeControl) {
+  volumeControl.addEventListener('input', toggleAudio);
+}

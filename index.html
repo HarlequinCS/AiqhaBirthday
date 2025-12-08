@@ -13,7 +13,28 @@
 </head>
 <body>
 <!-- partial:index.partial.html -->
+<!-- Black overlay for lights out effect -->
+<div id="lights-out-overlay"></div>
+
+<!-- Floating decorative elements -->
+<div class="floating-elements">
+  <div class="star star-1">⭐</div>
+  <div class="star star-2">✨</div>
+  <div class="star star-3">⭐</div>
+  <div class="star star-4">✨</div>
+  <div class="star star-5">⭐</div>
+  <div class="heart-float heart-1">💖</div>
+  <div class="heart-float heart-2">💕</div>
+  <div class="heart-float heart-3">💗</div>
+  <div class="heart-float heart-4">💝</div>
+</div>
+
 <div class="flowers-wrapper">
+  <div class="welcome-container">
+    <h1 class="welcome-title">🎂 Make a Wish! 🎂</h1>
+    <p class="welcome-subtitle">Click the button below to celebrate</p>
+  </div>
+  
   <div class="birthday-button">
     <button class="birthday-button__button">
       <svg class="birthday-button__cake" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 76.609 47.643">
@@ -116,6 +137,9 @@
 </div>
   </div>
 </div>
+
+<!-- Confetti particles container -->
+<div class="confetti-container"></div>
  
 <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js'></script>
