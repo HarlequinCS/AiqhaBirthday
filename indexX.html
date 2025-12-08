@@ -301,9 +301,9 @@
         <div class="close">
           <i class="fa-solid fa-xmark"></i>
         </div>
-        <div class="back-button">
-          <i class="fa-solid fa-arrow-left"></i>
-          <span>Back</span>
+        <div class="back-button close-button">
+          <i class="fa-solid fa-xmark"></i>
+          <span>Close</span>
         </div>
       </div>
     </div>
@@ -460,8 +460,9 @@ Selamat Hari Ulang Tahun Zulaikha Binti Mohammed Omar 🎂🌸✨`;
       $(".letter__border").slideUp();
     });
 
-    $(".back-button").on("click", function(){
+    $(".back-button, .close-button").on("click", function(){
       clearInterval(intervalContent);
+      clearInterval(intervalTitle);
       document.querySelector(".title__letter").textContent = "";
       text__letter.textContent = "";
       currentIndexLetter = 0;
