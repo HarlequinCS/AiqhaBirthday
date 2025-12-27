@@ -155,17 +155,7 @@ body::after {
   max-height: 90vh;
 }
 
-@media (max-width: 768px) {
-  .flowers {
-    transform: scale(0.8);
-  }
-}
-
-@media (max-width: 480px) {
-  .flowers {
-    transform: scale(0.6);
-  }
-}
+/* Removed responsive scaling to keep same view on all devices */
 
 .card {
   position: relative;
@@ -388,208 +378,18 @@ body::after {
   }
 }
 
-/* Responsive improvements */
-/* iPad and tablets (768px - 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .card {
-    padding: 45px 35px;
-    max-width: 750px;
-    width: 90%;
-    border-radius: 30px;
-  }
-  
-  .card h1 {
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-  }
-  
-  .card h1 .script {
-    font-size: 2.5rem;
-  }
-  
-  .name-glow {
-    font-size: 2rem;
-  }
-  
-  #message {
-    font-size: 1.25rem;
-    line-height: 2.1;
-    padding: 35px 40px;
-    min-height: 180px;
-  }
-  
-  .signature {
-    font-size: 1.8rem;
-    margin-top: 30px;
-  }
-  
-  #start-btn {
-    padding: 20px 45px;
-    font-size: 22px;
-  }
-}
+/* Responsive improvements - Removed to keep same view on PC and mobile */
+/* All devices will use the same base styles for consistent appearance */
 
-/* iPhone 16 and similar (393px - 767px) */
-@media (max-width: 767px) {
-  .flowers-wrapper {
-    padding: 30px 15px;
-  }
-  
+/* Minimal adjustment only for very small screens (below 360px) to ensure readability */
+@media (max-width: 360px) {
   .card {
-    padding: 35px 25px;
-    border-radius: 28px;
     width: 95%;
-    max-width: 100%;
-  }
-  
-  .card h1 {
-    font-size: 1.7rem;
-    margin-bottom: 25px;
-  }
-  
-  .card h1 .script {
-    font-size: 2.3rem;
-  }
-  
-  .name-glow {
-    font-size: 1.9rem;
+    padding: 40px 30px;
   }
   
   #message {
-    font-size: 1.2rem;
-    line-height: 2.1;
-    padding: 32px 35px;
-    margin: 20px 0;
-    min-height: 150px;
-  }
-  
-  .signature {
-    font-size: 1.7rem;
-    margin-top: 25px;
-    padding-right: 15px;
-  }
-  
-  #start-btn {
-    padding: 18px 40px;
-    font-size: 20px;
-  }
-  
-  .hint-text {
-    font-size: 14px;
-    margin-top: 25px;
-  }
-}
-
-/* Small phones (up to 480px) */
-@media (max-width: 480px) {
-  .flowers-wrapper {
-    padding: 20px 10px;
-  }
-  
-  .card {
-    padding: 30px 20px;
-    border-radius: 25px;
-  }
-  
-  .card h1 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-  }
-  
-  .card h1 .script {
-    font-size: 2rem;
-  }
-  
-  .name-glow {
-    font-size: 1.6rem;
-  }
-  
-  #message {
-    font-size: 1.15rem;
-    line-height: 2;
-    padding: 28px 30px;
-    margin: 18px 0;
-    border-radius: 20px;
-    min-height: 120px;
-  }
-  
-  .signature {
-    font-size: 1.5rem;
-    margin-top: 20px;
-    padding-right: 12px;
-  }
-  
-  #start-btn {
-    padding: 16px 30px;
-    font-size: 18px;
-  }
-  
-  .hint-text {
-    font-size: 13px;
-    margin-top: 20px;
-  }
-  
-  .heart {
-    width: 10px !important;
-    height: 10px !important;
-  }
-  
-  .heart:before,
-  .heart:after {
-    width: 10px !important;
-    height: 10px !important;
-  }
-}
-
-/* iPhone 16 Pro Max and larger phones (394px - 480px) */
-@media (min-width: 394px) and (max-width: 480px) {
-  #message {
-    font-size: 1.18rem;
-    padding: 30px 32px;
-    min-height: 140px;
-  }
-  
-  .card h1 .script {
-    font-size: 2.1rem;
-  }
-  
-  .name-glow {
-    font-size: 1.7rem;
-  }
-}
-
-/* Landscape orientation for phones */
-@media (max-height: 500px) and (orientation: landscape) {
-  .flowers-wrapper {
-    padding: 15px 20px;
-  }
-  
-  .card {
-    padding: 25px 30px;
-    max-width: 90%;
-  }
-  
-  .card h1 {
-    font-size: 1.4rem;
-    margin-bottom: 15px;
-  }
-  
-  .card h1 .script {
-    font-size: 1.8rem;
-  }
-  
-  #message {
-    font-size: 1.1rem;
-    line-height: 2;
-    padding: 25px 30px;
-    max-height: 50vh;
-    overflow-y: auto;
-    min-height: 100px;
-  }
-  
-  .signature {
-    font-size: 1.4rem;
-    margin-top: 15px;
+    padding: 30px 35px;
   }
 }
 
